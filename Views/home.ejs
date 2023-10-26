@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include('./partials/head') %>
+        <title>Home</title>
+    </head>
+    <body>
+        <%-include('./partials/navbar.ejs')%>
+        <div class="container mt-4 d-flex justify-content-between gap-4">
+            <% for( let i=0;i<locals.blogs.length;i++ ) { %>
+                <div class="card" style="width: 20rem;">
+                    <img src="<%=locals.blogs[i].coverImgUrl%>" class="card-img-top" alt="coverImg">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=locals.blogs[i].title%></h5>
+                        <p class="card-text"><%=locals.blogs[i].body%></p>
+                        <a href="/blogs/blog/<%=locals.blogs[i]._id%>" class="btn btn-primary">View Blog</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <%-include('./partials/scripts') %>
+    </body>
+</html>

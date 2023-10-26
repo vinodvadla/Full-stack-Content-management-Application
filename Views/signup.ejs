@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <title>Signup</title>
+    <style>
+        	@media (min-width:767px){
+		.registration{
+			max-width: 400px;
+		}
+	}
+    </style>
+</head>
+<body>
+    <%-include('./partials/navbar.ejs')%>
+    <div class="container">
+        <div class="registration mx-auto d-block w-100">
+            <div class="page-header text-center">
+                <h1>Sign up</h1>
+            </div>
+            
+            <form id="member-registration" action="/signup" method="post" class="form-validate form-horizontal well">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Name *</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email Address *</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="form-group d-flex justify-content-start">
+                            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                        </div>
+                        <div class="form-check form-group d-flex justify-content-end">
+                            <a href="/signin">Sign in instead</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <%-include('./partials/scripts.ejs')%>
+</body>
+</html>

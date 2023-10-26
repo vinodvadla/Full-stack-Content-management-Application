@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include('./partials/head.ejs')%>
+    <title>Add new blog</title>
+  </head>
+  <body>
+    <%-include('./partials/navbar.ejs')%>
+    <form action="/blogs" method="post">
+      <div class="container mt-3">
+        <div class="mb-3">
+          <label for="coverImg" class="form-label">Cover Image</label>
+          <input
+            type="text"
+            class="form-control"
+            id="coverImg"
+            aria-describedby="coverImg"
+            name="coverImgUrl"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="Title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Title"
+            aria-describedby="emailHelp"
+            name="title"
+          />
+        </div>
+        <label for="textArea" class="form-label">Body</label>
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            name="body"
+            placeholder="Leave a comment here"
+            id="textArea"
+          ></textarea>
+        </div>
+      </div>
+      <div class="mb-3 container mt-4">
+        <button
+          class="btn px-2 py-2 btn-primary text-light fw-bold"
+          type="submit"
+        >
+         View Blog
+        </button>
+      </div>
+    </form>
+
+    <%-include('./partials/scripts.ejs')%>
+  </body>
+</html>

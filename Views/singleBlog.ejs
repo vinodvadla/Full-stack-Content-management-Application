@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include('./partials/head.ejs')%>
+        <title>Document</title>
+    </head>
+    <body>
+        <%-include('./partials/navbar.ejs')%>
+        <% if (locals.blog) { %>
+           <div style="width: 100%;height:70vh;">
+            <img src=<%=locals.blog.coverImgUrl%> alt="blog-image" style="width:100%;height:100%;">
+           </div>
+           <div>
+            <h1><%=locals.blog.title%></h1>
+            <p><%=locals.blog.body%></p>
+           </div>
+        <% } %>
+
+
+        <div class="container">
+            <% if (locals.user) { %>
+                <div class="form-floating">
+                    <form action="/blogs/comment/<%=locals.blog._id%>" method="post">
+                    <textarea class="form-control" name="content" placeholder="Write Your Comment"></textarea>
+                    <button class="btn btn-info mt-4" type="submit">Submit Comment</button>
+                </form>
+                  </div>
+                  <div class="container mt-4">
+                    <%locals.comments.forEach(comment=>{%>
+                        <div>
+                            <img src="<%=comment.createdBy.profileImg%>" alt="profile"><span><%=comment.createdBy.name%></span>
+                            <p><%=comment.content%></p>
+                        </div>
+                    <%})%>
+                  </div>
+            <% } else { %>
+
+             <%}%>
+            
+        </div>
+        <%-include('./partials/scripts.ejs')%>
+    </body>
+</html>
